@@ -1,0 +1,4 @@
+applications:
+- memory: 512M
+  name: dteti
+  buildpack: https://github.com/cloudfoundry/go-buildpack.git
