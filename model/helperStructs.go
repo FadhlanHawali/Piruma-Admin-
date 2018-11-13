@@ -50,12 +50,24 @@ type SearchRuangan struct {
 //	Objek1 string `json:"objek_1" binding:"required"`
 //}
 
+type Hasil struct {
+	Count int `gorm:"column:COUNT(id_departemen)" json:"count" `
+	Departemen string `gorm:"column:id_departemen" json:"departemen" `
+}
+
 type StatusSurat struct {
 	StatusPeminjaman string `json:"status_peminjaman" binding:"required"`
 	StatusSurat string `json:"status_surat" binding:"required"`
 }
 
+type Jadwal struct {
+	Keterangan string `gorm:"column:keterangan" json:"keterangan"`
+	TimestampStart int64 `gorm:"column:timestamp_start" json:"timestamp_start,string"`
+	TimestampEnd int64 `gorm:"column:timestamp_end" json:"timestamp_end,string"`
+}
+
+
 type TimeStamp struct {
-	TimestampStart string `json:"timestamp_start" binding:"required"`
-	TimestampEnd string `json:"timestap_end" binding:"required"`
+	TimestampStart int64 `json:"timestamp_start,string" binding:"required"`
+	TimestampEnd int64 `json:"timestamp_end,string" binding:"required"`
 }

@@ -19,6 +19,9 @@ func main(){
 	router.GET("/api/ruangan/:idRuangan/delete",inDB.DeleteRuangan)
 	router.GET("/api/ruang/list",inDB.ListRuangan)
 	//router.POST("/cobo",inDB.AddOrder)
+	router.POST("/api/search",inDB.PublicSearch)
+	router.POST("api/search/:idDepartemen",inDB.PublicListRoom)
 	router.POST("/api/addOrder",inDB.AddOrder)
+	router.GET("/api/ruangan/:idRuangan/time",inDB.PublicDetailSchedule)
 	router.Run(":8080")
 }

@@ -33,6 +33,6 @@ type Orders struct {
 	Email string `json:"email"`
 	StatusPeminjaman string `json:"status_peminjaman"`
 	StatusSurat string `json:"status_surat"`
-	TimestampStart string `json:"timestamp_start"`
-	TimestapEnd string `json:"timestap_end"`
+	TimestampStart int64 `json:"timestamp_start,string"`
+	TimestampEnd int64 `json:"timestamp_end,string"`
 }

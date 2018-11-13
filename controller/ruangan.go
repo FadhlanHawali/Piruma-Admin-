@@ -109,6 +109,9 @@ func (idb *InDB) ListRuangan (c *gin.Context){
 	}
 }
 
+
+
+
 //func (idb *InDB) SearchRuangan (c *gin.Context){
 //	var(yy
 //		search model.SearchRuangan
