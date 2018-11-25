@@ -54,7 +54,7 @@ func (idb *InDB) Login(c *gin.Context){
 			result = gin.H{
 				"result":"Salah bos q",
 			}
-			c.JSON(http.StatusOK,result)
+			c.JSON(http.StatusBadRequest,result)
 			return
 		}
 	}

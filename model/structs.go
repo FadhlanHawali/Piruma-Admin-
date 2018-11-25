@@ -25,13 +25,15 @@ type Orders struct {
 	IdPemesanan string `json:"id_pemesanan"`
 	IdRuangan string `json:"id_ruangan"`
 	IdDepartemen string `json:"id_departemen"`
+	Pemesan string `json:"pemesan"`
 	Ruangan string `json:"ruangan"`
 	Departemen string `json:"departemen"`
 	PenanggungJawab string `json:"penanggung_jawab"`
 	Telepon string `json:"telepon"`
 	Keterangan string `json:"keterangan"`
 	Email string `json:"email"`
-	StatusPeminjaman string `json:"status_peminjaman"`
+	StatusProses *bool `json:"status_proses"`
+	StatusPeminjaman *bool `json:"status_peminjaman"`
 	StatusSurat string `json:"status_surat"`
 	TimestampStart int64 `json:"timestamp_start,string"`
 	TimestampEnd int64 `json:"timestamp_end,string"`

@@ -17,7 +17,6 @@ type Login struct {
 }
 
 type AddRuangan struct {
-	IdDepartemen string `json:"id_departemen" binding:"required"`
 	Kapasitas string `json:"kapasitas" binding:"required"`
 	NamaRuangan string `json:"nama_ruangan" binding:"required"`
 	Fasilitas string `json:"fasilitas" binding:"required"`
@@ -32,6 +31,7 @@ type AddOrder struct {
 	Telepon string `json:"telepon" binding:"required"`
 	Keterangan string `json:"keterangan" binding:"required"`
 	Email string `json:"email" binding:"required"`
+	StatusProses *bool `json:"status_proses"`
 	StatusSurat StatusSurat
 	TimeStamp TimeStamp
 }
@@ -39,6 +39,30 @@ type AddOrder struct {
 type SearchRuangan struct {
 	Kapasitas string `json:"kapasitas" binding:"required"`
 	TimeStamp TimeStamp
+}
+
+type JadwalDepartemen struct {
+	IdDepartemen string `json:"id_departemen"`
+	Departemen string `json:"departemen"`
+	JadwalRuangan []JadwalRuangan
+}
+
+type JadwalRuangan struct {
+	Ruangan string `json:"ruangan"`
+	IdRuangan string `json:"id_ruangan"`
+	JadwalDepartemen []JadwalDepartemen
+}
+
+type DetailJadwalRuangan struct {
+	IdPemesanan string `json:"id_pemesanan"`
+	PenanggungJawab string `json:"penanggung_jawab"`
+	Telepon string `json:"telepon"`
+	Keterangan string `json:"keterangan"`
+	Email string `json:"email"`
+	StatusPeminjaman *bool `json:"status_peminjaman"`
+	StatusSurat string `json:"status_surat"`
+	TimestampStart int64 `json:"timestamp_start,string"`
+	TimestampEnd int64 `json:"timestamp_end,string"`
 }
 
 //type Cobo struct{
@@ -56,7 +80,7 @@ type Hasil struct {
 }
 
 type StatusSurat struct {
-	StatusPeminjaman string `json:"status_peminjaman" binding:"required"`
+	StatusPeminjaman *bool `json:"status_peminjaman" binding:"exists"`
 	StatusSurat string `json:"status_surat" binding:"required"`
 }
 

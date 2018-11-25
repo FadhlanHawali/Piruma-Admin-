@@ -9,6 +9,11 @@
 			"Rev": "0b96aaa707760d6ab28d9b9d1913ff5993328bae"
 		},
 		{
+			"ImportPath": "github.com/gin-contrib/cors",
+			"Comment": "v1.2-29-g488de3e",
+			"Rev": "488de3ec974f4e37bb0eb426cdee1aa897726300"
+		},
+		{
 			"ImportPath": "github.com/gin-contrib/sse",
 			"Rev": "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae"
 		},
@@ -60,6 +65,11 @@
 			"ImportPath": "github.com/mattn/go-isatty",
 			"Comment": "v0.0.3-7-g6ca4dbf",
 			"Rev": "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/mapstructure",
+			"Comment": "v1.0.0",
+			"Rev": "fa473d140ef3c6adf42d6b391fe76707f1f243c8"
 		},
 		{
 			"ImportPath": "github.com/modern-go/concurrent",
