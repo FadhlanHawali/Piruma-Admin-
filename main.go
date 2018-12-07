@@ -35,6 +35,7 @@ func main(){
 	router.PUT("/api/order/:idPemesanan/accept",inDB.AcceptOrder)
 	router.PUT("/api/order/:idPemesanan/decline",inDB.DeclineOrder)
 	router.GET("/api/order/listorder",inDB.ListPublicOrder)
+	router.PUT("/api/order/:idPemesanan/update",inDB.UpdateStatusSurat)
 	router.GET("/api/order/check",middleware.PublicAuth,inDB.PublicCekStatusOrder)
 
 

@@ -85,6 +85,7 @@ func (idb *InDB) DeleteRuangan (c *gin.Context){
 		c.JSON(http.StatusBadRequest,result)
 		return
 	}else {
+
 		result = gin.H{
 			"result":"success",
 		}
@@ -196,7 +197,7 @@ func (idb *InDB) JadwalDepartemen (c *gin.Context){
 	timestamp_end := c.Query("end")
 
 	idb.DB.LogMode(true)
-	if err:=idb.DB.Raw("select * from orders where id_departemen = ? AND timestamp_start >= ? AND timestamp_end <= ?",idDepartemen,timestamp_start,timestamp_end).Find(&orders);err!=nil{
+	if err:=idb.DB.Raw("select * from orders where status_proses = ? AND id_departemen = ? AND timestamp_start >= ? AND timestamp_end <= ?",true,idDepartemen,timestamp_start,timestamp_end).Find(&orders);err!=nil{
 
 		var inInterface []map[string]interface{}
 		inrec, _ := json.Marshal(orders)

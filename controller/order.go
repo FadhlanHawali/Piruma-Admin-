@@ -410,9 +410,52 @@ func (idb *InDB) PublicCekStatusOrder (c *gin.Context){
 		c.JSON(http.StatusBadRequest,gin.H{
 			"penanggung_jawab":order.PenanggungJawab,
 			"status_peminjaman":order.StatusPeminjaman,
+			"status_proses":order.StatusProses,
 			"status_surat":order.StatusSurat,
 		})
 		return
 	}
 
+}
+
+func (idb *InDB) UpdateStatusSurat (c * gin.Context){
+
+	type Isi struct {
+		Status_surat string `json:"status_surat" binding:"required"`
+	}
+	idb.DB.LogMode(true)
+
+	var (
+
+		order model.Orders
+		status_surat Isi
+	)
+
+	idPemesanan  := c.Param("idPemesanan")
+
+	if err:= c.Bind(&status_surat);err!=nil{
+		c.JSON(http.StatusBadRequest,gin.H{
+			"result":"error",
+		})
+		return
+	}
+
+	if err:=idb.DB.Raw("select * from orders where id_pemesanan = ?",idPemesanan).Find(&order).Error;err!=nil{
+		c.JSON(http.StatusBadRequest,gin.H{
+			"result":"Pemesanan tidak ditemukan",
+		})
+		return
+	}
+
+	if err:=idb.DB.Table("orders").Where("id_pemesanan = ?",idPemesanan).UpdateColumn("status_surat",status_surat.Status_surat).Error;err!=nil{
+		c.JSON(http.StatusBadRequest,gin.H{
+			"error":err.Error(),
+		})
+		return
+	}else {
+		c.JSON(http.StatusOK,gin.H{
+			"result":"success",
+		})
+		return
+	}
 }
